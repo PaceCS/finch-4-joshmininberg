@@ -64,31 +64,35 @@ while (finch.getLightSensors().right < 100 && finch.getLightSensors().left < 100
             finch.setLED(255,100,150);
             wait(30);
             finch.setLED(200,225,0);
-            wait(30);
-            finch.setLED(217,109,110);
-            wait(30);
-            finch.setLED(7,20,89);
-            wait(30);
-            finch.setLED(90,249,165);
-            wait(30);
+            wait(30)
             const arr = [329.6, 293.7, 261.6, 293.7, 329.6, 329.6, 329.6, 293.7, 293.7, 293.7, 329.6, 392, 392, 329.6, 293.7, 261.6, 293.7, 329.6, 329.6, 329.6, 329.6, 293.7, 293.7, 329.6, 293.7, 261.6];
             const time = [1000,1000,1000,1000,1000,1000,2000,1000,1000,2000,1000,1000,2000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000]
             for(let counter = 0; counter < time.length; counter += 1) {
                 finch.playTone(arr[counter], time[counter])
-                wait(200)
+                wait(20)
             }
         }
     }
     finch.setLED(0,0,0)
-    finch.playTone(0)
     wait(1000)
 }
 finch.setLED(0,0,0)
-finch.playTone(0)
 // Have the Finch do the maze that you programmed earlier but have it pause if it detects an obstacle and stop completely if it detects a strong light
+while (finch.getLightSensors().right < 100 && finch.getLightSensors().left < 100) {
+    while(!finch.getObstacleSensors().right && !finch.getObstacleSensors().left) {
 
-
-
+        finch.setWheelPower(100, 100);
+        wait(3000);
+        finch.setWheelPower(0, 0);
+        wait(500)
+        finch.setWheelPower(100, 0);
+        wait(500);
+        finch.setWheelPower(0, 0);
+        wait(500)
+        finch.setWheelPower(100, 100);
+        wait(3000);
+        finch.setWheelPower(0, 0);
+        wait(500)
 
 
 
